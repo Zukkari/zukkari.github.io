@@ -1,0 +1,24 @@
+<div
+  class="card container mt-4 mb-4 p-2 d-flex justify-content-center text-center"
+>
+  <img
+    [src]="model.profilePictureLink"
+    class="mw-25 card-img-top rounded w-25 align-self-center"
+    alt="Profile picture"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ model.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ model.role }}</h6>
+    <div class="card-text mt-4">
+      <p>{{ model.biography }}</p>
+
+      <div class="container mt-5">
+        <div class="row text-center justify-content-center align-middle">
+          <div *ngFor="let icon of model.socialMediaLinks">
+            <zuk-social-media-icon [model]="icon"></zuk-social-media-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
