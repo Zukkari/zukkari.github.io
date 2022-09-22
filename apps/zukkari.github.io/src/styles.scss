@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  background-color: #20003d;
+  font-family: Inconsolata, serif;
+}
+
+.section-title {
+  font-size: x-large;
+  color: limegreen;
+  text-shadow: 0 0 2px #bfeabf;
+}
+
+.section-content {
+  color: #008600;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}

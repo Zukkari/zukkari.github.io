@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { TextPrinterComponent } from './text-printer/text-printer.component';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
+  declarations: [AppComponent, TextPrinterComponent],
   imports: [BrowserModule],
   providers: [],
   bootstrap: [AppComponent],

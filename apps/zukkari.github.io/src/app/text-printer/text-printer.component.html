@@ -1,0 +1,8 @@
+<div>
+  <span>{{ printedText$ | async }}</span>
+  <span *ngIf="showCursor" class="cursor">{{ cursor }}</span>
+</div>
+
+<div #content>
+  <ng-content></ng-content>
+</div>

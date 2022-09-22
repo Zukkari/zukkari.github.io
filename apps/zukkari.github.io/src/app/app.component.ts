@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'zukkari.github.io';
+
+  contentDisplayDelay = 1_000;
+
+  showSectionContent = false;
+
+  displaySectionContent(): void {
+    setTimeout(() => {
+      this.showSectionContent = true;
+    }, this.contentDisplayDelay);
+  }
 }

@@ -1,1 +1,16 @@
-<zio-nx-welcome></zio-nx-welcome>
+<div>
+  <div class="section-title">
+    <zio-text-printer
+      cursor="_"
+      [cursorDelay]="contentDisplayDelay"
+      (printComplete$)="displaySectionContent()"
+    >
+      Hello!
+    </zio-text-printer>
+  </div>
+  <div class="section-content mt-2">
+    <zio-text-printer *ngIf="showSectionContent" cursor="_">
+      This page is about me, in the future I might add more content.
+    </zio-text-printer>
+  </div>
+</div>
