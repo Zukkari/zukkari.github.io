@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/zukkari.github.io",
         "index": "apps/zukkari.github.io/src/index.html",
@@ -18,7 +20,9 @@
           "apps/zukkari.github.io/src/favicon.ico",
           "apps/zukkari.github.io/src/assets"
         ],
-        "styles": ["apps/zukkari.github.io/src/styles.scss"],
+        "styles": [
+          "apps/zukkari.github.io/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -83,11 +87,16 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/zukkari.github.io"],
+      "outputs": [
+        "coverage/apps/zukkari.github.io"
+      ],
       "options": {
         "jestConfig": "apps/zukkari.github.io/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "deploy": {
+      "executor": "angular-cli-ghpages:deploy"
     }
   },
   "tags": []
