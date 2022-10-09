@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { TextPrinterComponent } from './text-printer/text-printer.component';
+import { AppRoutingModule } from './app.routing.module';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
-  declarations: [AppComponent, TextPrinterComponent],
-  imports: [BrowserModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, ComponentsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}

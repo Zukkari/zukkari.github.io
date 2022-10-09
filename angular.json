@@ -8,51 +8,28 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "MDI3NmRjZDktZGJhYS00MjdhLWFiYzEtNmM4MTQ4OTIzZDBjfHJlYWQtd3JpdGU="
       }
     }
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "inputs": [
-        "production",
-        "^production"
-      ]
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     },
     "test": {
-      "inputs": [
-        "default",
-        "^production",
-        "{workspaceRoot}/jest.preset.js"
-      ]
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
     },
     "e2e": {
-      "inputs": [
-        "default",
-        "^production"
-      ]
+      "inputs": ["default", "^production"]
     },
     "lint": {
-      "inputs": [
-        "default",
-        "{workspaceRoot}/.eslintrc.json"
-      ]
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
     }
   },
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
@@ -62,113 +39,7 @@
     ],
     "sharedGlobals": []
   },
-  "cli": {
-    "packageManager": "npm",
-    "analytics": false
-  },
-  "schematics": {
-    "@nrwl/angular:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
-    }
-  },
-  "defaultProject": "zukkari.github.io",
   "projects": {
-    "zukkari.github.io-e2e": {
-      "root": "apps/zukkari.github.io-e2e",
-      "$schema": "../../node_modules/nx/schemas/project-schema.json",
-      "sourceRoot": "apps/zukkari.github.io-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/zukkari.github.io-e2e/cypress.config.ts",
-            "devServerTarget": "zukkari.github.io:serve:development",
-            "testingType": "e2e"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "zukkari.github.io:serve:production"
-            }
-          },
-          "inputs": [
-            "default",
-            "^production"
-          ]
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
-          "options": {
-            "lintFilePatterns": [
-              "apps/zukkari.github.io-e2e/**/*.{js,ts}"
-            ]
-          },
-          "inputs": [
-            "default",
-            "{workspaceRoot}/.eslintrc.json"
-          ]
-        }
-      },
-      "tags": [],
-      "implicitDependencies": [
-        "zukkari.github.io"
-      ],
-      "files": [
-        {
-          "file": "apps/zukkari.github.io-e2e/.eslintrc.json",
-          "hash": "4c5989b23b5aa8cc7aba2a07d1ae7daee19c1555"
-        },
-        {
-          "file": "apps/zukkari.github.io-e2e/cypress.config.ts",
-          "hash": "22f7c84eb637d4f23447fcb59dee130dd25b2de0",
-          "deps": [
-            "npm:cypress",
-            "npm:@nrwl/cypress"
-          ]
-        },
-        {
-          "file": "apps/zukkari.github.io-e2e/project.json",
-          "hash": "0f151a05ba70e6ebe387284541265d0d36cfec40"
-        },
-        {
-          "file": "apps/zukkari.github.io-e2e/src/e2e/app.cy.ts",
-          "hash": "32a921315851735e844d17b4f2434b9a3ac53484"
-        },
-        {
-          "file": "apps/zukkari.github.io-e2e/src/fixtures/example.json",
-          "hash": "294cbed6ce9e0b948b787452e8676aee486cb3be"
-        },
-        {
-          "file": "apps/zukkari.github.io-e2e/src/support/app.po.ts",
-          "hash": "32934246969c2ecb827ac05677785933a707a54d"
-        },
-        {
-          "file": "apps/zukkari.github.io-e2e/src/support/commands.ts",
-          "hash": "310f1fa0e043ffebbbcf575c5a4d17f13a6b14d6"
-        },
-        {
-          "file": "apps/zukkari.github.io-e2e/src/support/e2e.ts",
-          "hash": "3d469a6b6cf31eb66117d73e278bcf74f398f1db"
-        },
-        {
-          "file": "apps/zukkari.github.io-e2e/tsconfig.json",
-          "hash": "9e27f75c6fadf5f6175f48ca953d551089aef787"
-        }
-      ]
-    },
     "zukkari.github.io": {
       "root": "apps/zukkari.github.io",
       "$schema": "../../node_modules/nx/schemas/project-schema.json",
@@ -178,9 +49,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/zukkari.github.io",
             "index": "apps/zukkari.github.io/src/index.html",
@@ -192,9 +61,7 @@
               "apps/zukkari.github.io/src/favicon.ico",
               "apps/zukkari.github.io/src/assets"
             ],
-            "styles": [
-              "apps/zukkari.github.io/src/styles.scss"
-            ],
+            "styles": ["apps/zukkari.github.io/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -229,13 +96,8 @@
             }
           },
           "defaultConfiguration": "production",
-          "dependsOn": [
-            "^build"
-          ],
-          "inputs": [
-            "production",
-            "^production"
-          ]
+          "dependsOn": ["^build"],
+          "inputs": ["production", "^production"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -263,25 +125,16 @@
               "apps/zukkari.github.io/**/*.html"
             ]
           },
-          "inputs": [
-            "default",
-            "{workspaceRoot}/.eslintrc.json"
-          ]
+          "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/zukkari.github.io"
-          ],
+          "outputs": ["coverage/apps/zukkari.github.io"],
           "options": {
             "jestConfig": "apps/zukkari.github.io/jest.config.ts",
             "passWithNoTests": true
           },
-          "inputs": [
-            "default",
-            "^production",
-            "{workspaceRoot}/jest.preset.js"
-          ]
+          "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy"
@@ -316,24 +169,17 @@
         {
           "file": "apps/zukkari.github.io/src/app/app.component.spec.ts",
           "hash": "f59daefe04f5a7bc97525bf5dc80d1e916dd0053",
-          "deps": [
-            "npm:@angular/core"
-          ]
+          "deps": ["npm:@angular/core"]
         },
         {
           "file": "apps/zukkari.github.io/src/app/app.component.ts",
           "hash": "a789eeab075eff7d40996505536be31d905efaa2",
-          "deps": [
-            "npm:@angular/core"
-          ]
+          "deps": ["npm:@angular/core"]
         },
         {
           "file": "apps/zukkari.github.io/src/app/app.module.ts",
           "hash": "b5e557e3c3e760adb2ad41edab7016b5350e9fb5",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/platform-browser"
-          ]
+          "deps": ["npm:@angular/core", "npm:@angular/platform-browser"]
         },
         {
           "file": "apps/zukkari.github.io/src/app/text-printer/text-printer.component.html",
@@ -346,17 +192,12 @@
         {
           "file": "apps/zukkari.github.io/src/app/text-printer/text-printer.component.spec.ts",
           "hash": "351d77490c9e6e2f9af6c9fcc3083f45566700aa",
-          "deps": [
-            "npm:@angular/core"
-          ]
+          "deps": ["npm:@angular/core"]
         },
         {
           "file": "apps/zukkari.github.io/src/app/text-printer/text-printer.component.ts",
           "hash": "30b0704b883bd6dfeb67b2c65af56110a5ddb146",
-          "deps": [
-            "npm:@angular/core",
-            "npm:rxjs"
-          ]
+          "deps": ["npm:@angular/core", "npm:rxjs"]
         },
         {
           "file": "apps/zukkari.github.io/src/assets/.gitkeep",
@@ -381,17 +222,12 @@
         {
           "file": "apps/zukkari.github.io/src/main.ts",
           "hash": "d9a2e7e4a582e265db779363bd8b2492c43c141b",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/platform-browser-dynamic"
-          ]
+          "deps": ["npm:@angular/core", "npm:@angular/platform-browser-dynamic"]
         },
         {
           "file": "apps/zukkari.github.io/src/polyfills.ts",
           "hash": "e4555ed11fa2f217b8e4c744d564da4f7388b4c4",
-          "deps": [
-            "npm:zone.js"
-          ]
+          "deps": ["npm:zone.js"]
         },
         {
           "file": "apps/zukkari.github.io/src/styles.scss",
@@ -400,9 +236,7 @@
         {
           "file": "apps/zukkari.github.io/src/test-setup.ts",
           "hash": "1100b3e8a6ed08f4b5c27a96471846d57023c320",
-          "deps": [
-            "npm:jest-preset-angular"
-          ]
+          "deps": ["npm:jest-preset-angular"]
         },
         {
           "file": "apps/zukkari.github.io/tsconfig.app.json",
@@ -419,6 +253,77 @@
         {
           "file": "apps/zukkari.github.io/tsconfig.spec.json",
           "hash": "c5db02778f96a2a200d787c0a7b376fe0d6c36f7"
+        }
+      ]
+    },
+    "zukkari.github.io-e2e": {
+      "root": "apps/zukkari.github.io-e2e",
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
+      "sourceRoot": "apps/zukkari.github.io-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/zukkari.github.io-e2e/cypress.config.ts",
+            "devServerTarget": "zukkari.github.io:serve:development",
+            "testingType": "e2e"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "zukkari.github.io:serve:production"
+            }
+          },
+          "inputs": ["default", "^production"]
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/zukkari.github.io-e2e/**/*.{js,ts}"]
+          },
+          "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["zukkari.github.io"],
+      "files": [
+        {
+          "file": "apps/zukkari.github.io-e2e/.eslintrc.json",
+          "hash": "4c5989b23b5aa8cc7aba2a07d1ae7daee19c1555"
+        },
+        {
+          "file": "apps/zukkari.github.io-e2e/cypress.config.ts",
+          "hash": "22f7c84eb637d4f23447fcb59dee130dd25b2de0",
+          "deps": ["npm:cypress", "npm:@nrwl/cypress"]
+        },
+        {
+          "file": "apps/zukkari.github.io-e2e/project.json",
+          "hash": "0f151a05ba70e6ebe387284541265d0d36cfec40"
+        },
+        {
+          "file": "apps/zukkari.github.io-e2e/src/e2e/app.cy.ts",
+          "hash": "32a921315851735e844d17b4f2434b9a3ac53484"
+        },
+        {
+          "file": "apps/zukkari.github.io-e2e/src/fixtures/example.json",
+          "hash": "294cbed6ce9e0b948b787452e8676aee486cb3be"
+        },
+        {
+          "file": "apps/zukkari.github.io-e2e/src/support/app.po.ts",
+          "hash": "32934246969c2ecb827ac05677785933a707a54d"
+        },
+        {
+          "file": "apps/zukkari.github.io-e2e/src/support/commands.ts",
+          "hash": "310f1fa0e043ffebbbcf575c5a4d17f13a6b14d6"
+        },
+        {
+          "file": "apps/zukkari.github.io-e2e/src/support/e2e.ts",
+          "hash": "3d469a6b6cf31eb66117d73e278bcf74f398f1db"
+        },
+        {
+          "file": "apps/zukkari.github.io-e2e/tsconfig.json",
+          "hash": "9e27f75c6fadf5f6175f48ca953d551089aef787"
         }
       ]
     }

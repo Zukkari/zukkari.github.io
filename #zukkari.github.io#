@@ -1,0 +1,2 @@
+qng g component navigation --project zukkari.github.io --change-detection OnPush
+qng g module routing --project zukkari.github.io --module app --routing

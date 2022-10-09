@@ -9,7 +9,17 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { BehaviorSubject, finalize, interval, Observable, scan, Subject, switchMap, takeUntil, zip, } from 'rxjs';
+import {
+  BehaviorSubject,
+  finalize,
+  interval,
+  Observable,
+  scan,
+  Subject,
+  switchMap,
+  takeUntil,
+  zip,
+} from 'rxjs';
 
 @Component({
   selector: 'zio-text-printer',
@@ -17,7 +27,7 @@ import { BehaviorSubject, finalize, interval, Observable, scan, Subject, switchM
   styleUrls: ['./text-printer.component.scss'],
 })
 export class TextPrinterComponent implements OnInit, OnDestroy, AfterViewInit {
-  @Input() cursor = "_";
+  @Input() cursor = '_';
   @Input() cursorDelay = 2_000;
 
   @Input() delay = 15;

@@ -1,0 +1,15 @@
+<section>
+  <div class="emphasised-text">
+    <zio-text-printer
+      [cursorDelay]="contentDisplayDelay"
+      (printComplete$)="displaySectionContent()"
+    >
+      Hello!
+    </zio-text-printer>
+  </div>
+  <div class="default-text mt-2">
+    <zio-text-printer *ngIf="showSectionContent">
+      This page is about me, in the future I might add more content.
+    </zio-text-printer>
+  </div>
+</section>

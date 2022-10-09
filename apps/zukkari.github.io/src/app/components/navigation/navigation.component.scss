@@ -1,0 +1,31 @@
+@import 'apps/zukkari.github.io/src/styles.scss';
+
+.navigation {
+  ul {
+    list-style-type: none;
+  }
+
+  ul > li {
+    display: inline-block;
+  }
+
+  a {
+    display: block;
+    padding: 1rem;
+  }
+}
+
+.navigation-item {
+  @extend .emphasised-text;
+  text-decoration: none;
+}
+
+.is-active::before {
+  content: "[";
+  margin-right: 0.5rem;
+}
+
+.is-active::after {
+  content: "]";
+  margin-left: 0.5rem;
+}

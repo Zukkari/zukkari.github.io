@@ -1,16 +1,9 @@
-<div>
-  <div class="section-title">
-    <zio-text-printer
-      cursor="_"
-      [cursorDelay]="contentDisplayDelay"
-      (printComplete$)="displaySectionContent()"
-    >
-      Hello!
-    </zio-text-printer>
+<div class="page">
+  <div class="navigation-element">
+    <zio-navigation [navigationItems]="pages"></zio-navigation>
   </div>
-  <div class="section-content mt-2">
-    <zio-text-printer *ngIf="showSectionContent">
-      This page is about me, in the future I might add more content.
-    </zio-text-printer>
+
+  <div class="content">
+    <router-outlet></router-outlet>
   </div>
 </div>
